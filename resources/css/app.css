@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  background-color: #1D2122;
+  max-width: 1440px;
+  margin:auto;
+}
+
+ul{
+  @apply flex flex-row items-center gap-8 max-w-[960px] mx-auto font-bold md:text-[1.5vw] text-[1vw];
+  
+ 
+}
+
+li{
+  @apply hover:text-[#76D4EC] hover:font-bold text-white;
+  @apply transition duration-300 ease-in-out;
+}
+
+nav{
+  @apply p-4 flex flex-row items-center justify-between max-w-[1440px] mx-auto;
+}
+
+button{
+  @apply bg-[#76D4EC] text-[#092356] py-2 px-4 rounded-full hover:bg-[#8EEC76] font-bold;
+  @apply transition duration-[400ms] ease-in;
+}
+
+nav>img{
+  height: auto;
+  width: 8vw;
+}
+
+h1, h2, h3, h4, h5,h6{
+  @apply text-xl md:text-[2.5vw] lg:text-[3vw] text-[#C3DCDF] font-extrabold font-passionOne;
+  line-height: 120%;
+}
+
+h2{
+  @apply text-base md:text-[1.5vw] lg:text-[2vw];
+  line-height: 115%;
+}
+
+.header{
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  gap: 2rem;
+}
+
+.header>p{
+  @apply text-lg md:text-[1.5rem] text-[#C3DCDF] font-raleway font-normal text-left;
+  line-height: 120%
+}
+
+.hero{
+  @apply flex items-center gap-16;
+  height: 50%;
+  margin-top: 8rem;
+  width: 100%;
+}
+
+.hero>img{
+  height: auto;
+  width: 70%
+}
+
+.title_subtitle{
+  @apply flex flex-col justify-between gap-8 text-[#C3DCDF] font-raleway font-normal text-left max-w-[50%] text-[1.5em]; 
+}
+
+.container {
+    position: relative;
+    width: 50%; /* Ajuste selon la taille de tes images */
+    height: 100%;
+    padding: 2rem; /* Ajuste selon la taille de tes images */
+}
+
+
+.schema{
+  height: auto;
+  width: auto;
+}
+
+.tuto_hell{
+  @apply flex items-center justify-between mx-auto gap-32 py-32;
+  padding-left:1rem;
+  padding-right: 1rem;
+
+}
+
+.icon{
+  height: auto;
+  width: 12.5%;
+}

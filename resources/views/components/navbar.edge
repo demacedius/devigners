@@ -1,0 +1,11 @@
+<nav>
+    <img src="resources/assets/Group1.svg" alt=""/>
+    <ul>
+        @each(item in items)
+            <li><a href="#">{{ item }}</a></li>
+            
+        @endeach
+        
+    </ul>
+    @!component('components/button', {text: Connection})
+</nav>
