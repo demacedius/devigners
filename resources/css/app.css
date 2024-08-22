@@ -42,12 +42,12 @@ nav>img{
 }
 
 h1, h2, h3, h4, h5,h6{
-  @apply text-xl md:text-[2.5vw] lg:text-[3vw] text-[#C3DCDF] font-extrabold font-passionOne;
+  @apply text-xl md:text-[1.5rem] lg:text-[2rem] text-[#C3DCDF] font-extrabold font-passionOne;
   line-height: 120%;
 }
 
 h2{
-  @apply text-base md:text-[1.5vw] lg:text-[2vw];
+  @apply text-base md:text-[1.5rem] lg:text-[2rem];
   line-height: 115%;
 }
 
@@ -102,4 +102,9 @@ h2{
 .icon{
   height: auto;
   width: 12.5%;
+}
+
+.example>img{
+  height: auto;
+  width: 33%;
 }
