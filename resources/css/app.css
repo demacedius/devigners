@@ -108,3 +108,56 @@ h2{
   height: auto;
   width: 33%;
 }
+
+.tech{
+  @apply gap-32;
+}
+
+.techicon{
+
+  position: relative;
+  width: 50%;
+  display: block;
+  
+}
+  .techicon img{
+    transition: all 0.2s ease-in-out;
+    position: absolute;
+    left: 50%;
+    right: 50%;
+    transform: translate(-40%,-40%);
+    display: block;
+  }
+  
+  .techicon:hover img{
+    transform: rotate(var(--rotate)) translateX(var(--offsetx)) translateY(var(--offsety));
+  }
+  
+  .techicon .img-1{
+    --rotate: 15deg;
+    --offsetx: 200px;
+    --offsety: 200px;
+  }
+  
+  .techicon .img-2{
+    --rotate: -15deg;
+    --offsetx: -200px;
+    --offsety: 200px;
+  }
+  
+  .techicon .img-3{
+    --rotate: 25deg;
+    --offsetx: 200px;
+    --offsety: -200px;
+  }
+  
+  .techicon .img-4{
+    --rotate: -25deg;
+    --offsetx: -200px;
+    --offsety: -200px;
+  }
+  .techicon .img-5{
+    --rotate: 2deg;
+    --offsetx: 0;
+    --offsety: 0;
+  }
