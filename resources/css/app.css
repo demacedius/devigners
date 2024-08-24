@@ -110,13 +110,16 @@ h2{
 }
 
 .tech{
-  @apply gap-32;
+  align-items: center;
+  gap: 17rem;
+
 }
 
 .techicon{
 
   position: relative;
   width: 50%;
+  height: 50vh;
   display: block;
   
 }
@@ -124,40 +127,49 @@ h2{
     transition: all 0.2s ease-in-out;
     position: absolute;
     left: 50%;
-    right: 50%;
-    transform: translate(-40%,-40%);
+    top: 50%;
+    transform: translate(-50%,-50%);
     display: block;
+    transform-origin: center;
   }
   
   .techicon:hover img{
     transform: rotate(var(--rotate)) translateX(var(--offsetx)) translateY(var(--offsety));
   }
   
+  .techicon:hover .img-5 {
+  transform: translate(-50%, -50%); /* Ou tout autre transformation fixe que tu veux */
+}
+
+
   .techicon .img-1{
     --rotate: 15deg;
     --offsetx: 200px;
-    --offsety: 200px;
+    --offsety: 100px;
+    
   }
   
   .techicon .img-2{
     --rotate: -15deg;
-    --offsetx: -200px;
-    --offsety: 200px;
+    --offsetx: -300px;
+    --offsety: 100px;
   }
   
   .techicon .img-3{
     --rotate: 25deg;
-    --offsetx: 200px;
-    --offsety: -200px;
+    --offsetx: 100px;
+    --offsety: -300px;
   }
   
   .techicon .img-4{
     --rotate: -25deg;
     --offsetx: -200px;
-    --offsety: -200px;
+    --offsety: -350px;
   }
   .techicon .img-5{
     --rotate: 2deg;
     --offsetx: 0;
     --offsety: 0;
+    transform-origin: center;
+    
   }
