@@ -175,16 +175,18 @@ h2{
     
   }
   form{
-  @apply mx-auto;
+  @apply mx-auto py-4;
   width: 50%;
   display: flex;
   flex-direction: column;
   color: rgb(195 220 223);
   gap: 1em;
+
 }
 form>input{
   padding: 1em;
   border-radius: 1rem;
+  color: #1D2122;
 }
 form>a>button{
   width: 100%;
@@ -200,4 +202,13 @@ form>a>button{
 
 .formulaire>h1{
   @apply py-8;
+}
+
+.formulaire>a{
+  color: rgb(195 220 223);
+  @apply font-raleway text-base ;
+  padding: 1rem;
+  border-radius: 16px;
+  border:solid 1px cyan;
+
 }
