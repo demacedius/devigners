@@ -174,3 +174,30 @@ h2{
     transform-origin: center;
     
   }
+  form{
+  @apply mx-auto;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  color: rgb(195 220 223);
+  gap: 1em;
+}
+form>input{
+  padding: 1em;
+  border-radius: 1rem;
+}
+form>a>button{
+  width: 100%;
+}
+
+.formulaire{
+  @apply pt-12 w-1/2 mx-auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+.formulaire>h1{
+  @apply py-8;
+}
