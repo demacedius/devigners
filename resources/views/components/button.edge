@@ -1,1 +1,5 @@
-<a href="{{route}}"><button type="submit">{{text}}</button></a>
+@let(nodeName = $props.has('href')? 'a' : 'button')
+@let (className = ' bg-[#76D4EC] text-[#092356] py-2 px-4 rounded-full hover:bg-[#8EEC76] font-bold transition duration-[400ms] ease-in')
+<{{ nodeName }} {{ $props.merge({class: [className]}).toAttrs()}}>
+{{{ await $slots.main() }}}
+</ {{ nodeName}} >

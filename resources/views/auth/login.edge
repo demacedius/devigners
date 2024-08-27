@@ -1,0 +1,18 @@
+@layout.base() 
+    @slot('meta')
+        <meta name="description" content="Page de connexion de la plateforme Devign">
+    @end
+
+    @slot('main')
+    <div class="formulaire">
+
+        <form action="{{route('auth.handleLogin')}}" method="post">
+            {{ csrfField() }}
+            
+           @!component('components/form/input', { name:'email', label: 'Adresse E-mail', type: 'email' })
+           @!component('components/form/input', { name: 'password', label: 'Mot de passe', type: 'password' })
+            <button type="submit">Ce connecter</button>
+        </form>
+    </div>
+    @end
+@end

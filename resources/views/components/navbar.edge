@@ -1,5 +1,6 @@
+@eval(await auth.use('web').check())
 <nav>
-    <img src="resources/assets/Group1.svg" alt=""/>
+    <img src="/resources/assets/Group1.svg" alt=""/>
     <ul>
         @each(item in items)
             <li><a href="#">{{ item }}</a></li>
@@ -7,5 +8,12 @@
         @endeach
         
     </ul>
-    @!component('components/button', {text: "Connection / S'inscrire", route: route('signIn')})
+    @if(!auth.use('web').isAuthenticated) 
+    <a href="{{ route('auth.register')}}">Register</a>
+    <a href="{{ route('auth.login' )}}">Login</a>
+    @else
+    
+    {{ auth.user.email}}
+        
+    @end
 </nav>

@@ -1,0 +1,19 @@
+@layout.base() 
+    @slot('meta')
+        <meta name="description" content="page de création de compte de la plateforme devign">
+    @endslot
+
+    @slot('main')
+    <div class="formulaire">
+        <h1>Inscription</h1>
+        <form action="" method="post">
+            {{ csrfField() }}
+
+            @!component('components/form/input', { name: 'email', label: 'Email', type: 'email' })
+            @!component('components/form/input', { name: 'password', label: 'Mot de passe', type: 'password' })
+            <button type="submit">S'enregistrer</button>
+        </form>
+    </div>
+    @endslot
+
+@end

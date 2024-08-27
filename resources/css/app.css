@@ -1,7 +1,7 @@
+@import 'signIn.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import 'signIn.css';
 
 * {
   margin: 0;
@@ -32,8 +32,8 @@ nav{
   @apply p-4 flex flex-row items-center justify-between max-w-[1440px] mx-auto;
 }
 
-button{
-  @apply bg-[#76D4EC] text-[#092356] py-2 px-4 rounded-full hover:bg-[#8EEC76] font-bold;
+nav>a{
+  @apply bg-[#76D4EC] text-[#092356] py-2 px-4 rounded-full hover:bg-[#8EEC76] font-bold mr-4;
   @apply transition duration-[400ms] ease-in;
 }
 
@@ -183,13 +183,16 @@ h2{
   gap: 1em;
 
 }
-form>input{
+input{
   padding: 1em;
   border-radius: 1rem;
   color: #1D2122;
-}
-form>a>button{
   width: 100%;
+}
+form>button{
+  width: 100%;
+  @apply bg-[#76D4EC] text-[#092356] py-2 px-4 rounded-full hover:bg-[#8EEC76] font-bold mr-4;
+  @apply transition duration-[400ms] ease-in;
 }
 
 .formulaire{
