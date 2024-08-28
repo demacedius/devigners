@@ -8,12 +8,15 @@
         @endeach
         
     </ul>
-    @if(!auth.use('web').isAuthenticated) 
-    <a href="{{ route('auth.register')}}">Register</a>
-    <a href="{{ route('auth.login' )}}">Login</a>
+    @if(!auth.isAuthenticated) 
+    <a href="{{ route('auth.register.show')}}">Register</a>
+    <a href="{{ route('auth.login.show' )}}">Login</a>
     @else
     
-    {{ auth.user.email}}
-        
+    
+    <form method="post" action="{{ route('auth.logout')}}">
+        {{ csrfField() }}
+        <button type="submit"> déconnecter {{ auth.user.email}}</button>
+    </form>
     @end
 </nav>

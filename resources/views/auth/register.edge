@@ -6,11 +6,24 @@
     @slot('main')
     <div class="formulaire">
         <h1>Inscription</h1>
-        <form action="" method="post">
+        <form action="{{ route('auth.register.store')}}" method="post">
             {{ csrfField() }}
 
-            @!component('components/form/input', { name: 'email', label: 'Email', type: 'email' })
-            @!component('components/form/input', { name: 'password', label: 'Mot de passe', type: 'password' })
+            <label for="">
+                <span>Email</span>
+                <input type="email" name="email" value="{{ old('email') || ''}}"/>
+                @inputError('email')
+                    {{ $messages.join(', ')}}
+                @end
+            </label>
+
+            <label for="">
+                <span>Password</span>
+                <input type="password" name="password" value="{{ old('password') || ''}}" />
+                @inputError('password')
+                {{ $messages.join(', ')}}
+                @end
+            </label>
             <button type="submit">S'enregistrer</button>
         </form>
     </div>

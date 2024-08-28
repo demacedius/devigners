@@ -36,7 +36,11 @@ nav>a{
   @apply bg-[#76D4EC] text-[#092356] py-2 px-4 rounded-full hover:bg-[#8EEC76] font-bold mr-4;
   @apply transition duration-[400ms] ease-in;
 }
+nav>form{
 
+  all:unset;
+
+}
 nav>img{
   height: auto;
   width: 8vw;

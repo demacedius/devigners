@@ -1,18 +1,32 @@
-@layout.base() 
-    @slot('meta')
-        <meta name="description" content="Page de connexion de la plateforme Devign">
-    @end
+@layout.base()
+@slot('meta')
+<meta name="description" content="page de création de compte de la plateforme devign">
+@endslot
 
-    @slot('main')
-    <div class="formulaire">
+@slot('main')
+<div class="formulaire">
+    <h1>Connexion</h1>
+    <form action="{{ route('auth.login.store')}}" method="post">
+        {{ csrfField() }}
 
-        <form action="{{route('auth.handleLogin')}}" method="post">
-            {{ csrfField() }}
-            
-           @!component('components/form/input', { name:'email', label: 'Adresse E-mail', type: 'email' })
-           @!component('components/form/input', { name: 'password', label: 'Mot de passe', type: 'password' })
-            <button type="submit">Ce connecter</button>
-        </form>
-    </div>
-    @end
+        <label for="">
+            <span>Email</span>
+            <input type="email" name="email" value="{{ old('email') || ''}}" />
+            @inputError('email')
+            {{ $messages.join(', ')}}
+            @end
+        </label>
+
+        <label for="">
+            <span>Password</span>
+            <input type="password" name="password" value="{{ old('password') || ''}}" />
+            @inputError('password')
+            {{ $messages.join(', ')}}
+            @end
+        </label>
+        <button type="submit">S'enregistrer</button>
+    </form>
+</div>
+@endslot
+
 @end
