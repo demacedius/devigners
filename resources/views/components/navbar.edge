@@ -3,7 +3,16 @@
     <img src="/resources/assets/Group1.svg" alt=""/>
     <ul>
         @each(item in items)
-            <li><a href="#">{{ item }}</a></li>
+            @if(item === "Challenge")
+                <li><a href="{{ route('challenges.challenges.index')}}">{{ item }}</a></li>
+            @elseif(item === "Solution")
+                <li><a href="#">{{ item }}</a></li>
+            @elseif(item === "Tarif")
+                <li><a href="#">{{ item }}</a></li>
+            @else
+                <li><a href="">{{ item }}</a></li>
+            @end
+
             
         @endeach
         

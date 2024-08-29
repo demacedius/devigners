@@ -1,0 +1,43 @@
+
+
+@layout.base()
+@slot('meta')
+    <meta name="description" content="Page qui liste tous les challenges de la plateforme">
+@endslot
+
+@slot('main')
+    <div class="container">
+        <h1>Liste des challenges</h1>
+        <div class="challenge_list">
+
+                @each(challenge in challenges)
+                    <div class="challenge_card">
+
+                        <img src="{{challenge.cover_image}}" alt="cover image of {{challenge.name}}">
+                        <h2>{{challenge.name}}</h2>
+                        <p>{{challenge.description}}</p>
+
+                        <a href="{{challenge.figma_link}}" target="_blank" rel="noopener noreferrer">Voir sur Figma</a>
+
+
+                        @if(challenge.completed == 1)
+                            <p>terminé</p>
+                        @else
+                            <p>Non terminé</p>
+                        @endif
+                        @if(challenge.free == 0)
+                            <p>payant</p>
+                        @else
+                            <p>gratuit</p>
+                        @endif
+                        <p>{{challenge.level}}</p>
+                        <a href="{{route('challenges.challenges.show', {id: challenge.id})}}">{{challenge.name}}</a>
+                    </div>
+                @endeach
+            
+        </div>
+    </div>
+@endslot
+
+@end
+

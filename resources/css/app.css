@@ -219,3 +219,26 @@ form>button{
   border:solid 1px cyan;
 
 }
+
+.challenge_card{
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px;
+  padding: 1rem;
+  background-color: #B5F0F4;
+}
+
+.challenge_list{
+  
+  display: grid;
+  grid-template-columns: repeat(3, 33%);
+  gap: 1rem;
+}
+
+.container{
+  width: 100%;
+}
+
+.container>h1{
+  @apply p-8;
+}

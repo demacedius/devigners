@@ -11,6 +11,7 @@
 import LoginController from '#controllers/auth/login_controller'
 import LogoutController from '#controllers/auth/logout_controller'
 import RegisterController from '#controllers/auth/register_controller'
+import ChallengesController from '#controllers/challenges_controller'
 import router from '@adonisjs/core/services/router'
 
 
@@ -32,3 +33,9 @@ router.group(() => {
 })
     .as('auth')
 
+router.group(() => {
+    router.get('/challenges', [ChallengesController,'index']).as('challenges.index')
+    router.get('/challenges/:id', [ChallengesController, 'show']).as('challenges.show')
+    
+})
+    .as('challenges')
