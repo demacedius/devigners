@@ -2,7 +2,7 @@ import type { HttpContext } from '@adonisjs/core/http';
 import axios from 'axios';
 
 export default class ChallengesController {
-  private static figmaAccessToken = 'figd_G0CKCC78Vgw9l9CcGpJci_s1U_4pGwBo_auZyz-T';
+  private static figmaAccessToken = process.env.FIGMA_ACCESS_TOKEN || '';
   private static figmaApiBaseUrl = 'https://api.figma.com/v1';
 
   public static getFigmaAccessToken(): string {
