@@ -15,22 +15,22 @@
 
                         <img src="{{challenge.cover_image}}" alt="cover image of {{challenge.name}}">
                         <h2>{{challenge.name}}</h2>
-                        <p>{{challenge.description}}</p>
+                        <p class="description">{{challenge.description}}</p>
 
                         <a href="{{challenge.figma_link}}" target="_blank" rel="noopener noreferrer">Voir sur Figma</a>
 
 
                         @if(challenge.completed == 1)
-                            <p>terminé</p>
+                            <p class="complete">terminé</p>
                         @else
-                            <p>Non terminé</p>
+                            <p class="complete">Non terminé</p>
                         @endif
                         @if(challenge.free == 0)
-                            <p>payant</p>
+                            <p class="plan">payant</p>
                         @else
-                            <p>gratuit</p>
+                            <p class="plan">gratuit</p>
                         @endif
-                        <p>{{challenge.level}}</p>
+                        <p class="level">{{challenge.level}}</p>
                         <a href="{{route('challenges.challenges.show', {id: challenge.id})}}">{{challenge.name}}</a>
                     </div>
                 @endeach

@@ -220,18 +220,109 @@ form>button{
 
 }
 
-.challenge_card{
-  display: flex;
-  flex-direction: column;
-  border-radius: 16px;
-  padding: 1rem;
-  background-color: #B5F0F4;
+/* Styles de la carte */
+.challenge_card {
+    background: white;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    width: 40ch;
+    padding: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
 }
+
+/* Image de couverture */
+.challenge_card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* Label "New" */
+.challenge_card::before {
+    content: "New";
+    background: #A1FFBE;
+    color: black;
+    font-weight: bold;
+    padding: 5px 10px;
+    width: fit-content;
+    border-radius: 15px;
+    position: relative;
+    top: 20px;
+    right: 10px;
+    left: 70%;
+}
+
+/* Titre du challenge */
+.challenge_card h2 {
+    font-size: 1.5em;
+    margin: 10px 0;
+    color: #000000;
+    font-weight: bold;
+}
+
+/* Description */
+.challenge_card .description {
+    font-size: 0.9em;
+    color: #666666;
+    margin-bottom: 15px;
+}
+
+/* Bouton vers Figma */
+.challenge_card a {
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #3B82F6;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Indication de complétion */
+.challenge_card .complete {
+    font-size: 0.9em;
+    color: #3B82F6;
+    margin-top: 10px;
+}
+
+/* Indication du plan (gratuit/payant) */
+.challenge_card .plan {
+    font-size: 0.9em;
+    color: #10B981;
+    margin-top: 10px;
+}
+
+/* Niveau du challenge */
+.challenge_card .level {
+    font-size: 1em;
+    color: #10B981;
+    background: #A1FFBE;
+    padding: 5px 10px;
+    border-radius: 12px;
+    display: inline-block;
+    font-weight: bold;
+}
+
+/* Lien vers le challenge */
+.challenge_card a {
+    color: #3B82F6;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 15px;
+    display: inline-block;
+}
+
 
 .challenge_list{
   
   display: grid;
   grid-template-columns: repeat(3, 33%);
+  place-items: center;
   gap: 1rem;
 }
 

@@ -13,6 +13,7 @@ import LogoutController from '#controllers/auth/logout_controller'
 import RegisterController from '#controllers/auth/register_controller'
 import ChallengesController from '#controllers/challenges_controller'
 import router from '@adonisjs/core/services/router'
+import { middleware } from './kernel.js'
 
 
 router.get('/', async (ctx) => {
@@ -38,4 +39,4 @@ router.group(() => {
     router.get('/challenges/:id', [ChallengesController, 'show']).as('challenges.show')
     
 })
-    .as('challenges')
+    .use(middleware.auth()).as('challenges')

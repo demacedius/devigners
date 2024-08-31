@@ -1,0 +1,26 @@
+
+@layout.base() 
+  @slot('meta')
+    <meta name="description" content="Page qui permet de voir un challenge en détail">
+  @endslot
+
+  @slot('main')
+    <div class="challenge_detail">
+      <div class="challenge_detail_header">
+        <h1>{{ challenge.name }}</h1>
+        <p>{{ challenge.description }}</p>
+      </div>
+
+      <div class="challenge_detail_body">
+        <img src="{{ challenge.thumbnailUrl }}" alt="Image de couverture du challenge">
+        <a href="{{ challenge.link }}" target="_blank" rel="noopener noreferrer">Voir sur Figma</a>
+      </div>
+
+      <div class="challenge_detail_footer">
+        <p class="level">{{ challenge.level }}</p>
+        <p class="plan">{{ challenge.free ? 'Gratuit' : 'Payant' }}</p>
+        <p class="complete">{{ challenge.completed ? 'Terminé' : 'Non terminé' }}</p>
+      </div>
+    </div>
+  @endslot
+@end
