@@ -53,11 +53,26 @@ class FigmaService {
         },
       });
 
-      console.log('File Data:', response.data);
+ 
       return response.data;
     } catch (error) {
       console.error('Error fetching file:', error.response?.data || error.message);
       throw new Error('Unable to fetch file');
+    }
+  }
+
+  public static async getComponents(fileId: string): Promise<any> {
+    try {
+      const response = await axios.get(`${this.figmaApiBaseUrl}/files/${fileId}/components`, {
+        headers: {
+          'X-Figma-Token': this.getFigmaAccessToken(),
+        },
+      });
+      return response.data;
+
+    } catch (error) {
+      console.error('Error fetching components:', error.response?.data || error.message);
+      throw new Error('Unable to fetch components');
     }
   }
 }

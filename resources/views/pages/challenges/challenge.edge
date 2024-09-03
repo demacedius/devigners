@@ -8,7 +8,8 @@
     <div class="challenge_detail">
       <div class="challenge_detail_header">
         <h1>{{ challenge.name }}</h1>
-        <p>{{ challenge.description }}</p>
+
+        <p> {{ description}}</p>
       </div>
 
       <div class="challenge_detail_body">
@@ -17,7 +18,6 @@
       </div>
 
       <div class="challenge_detail_footer">
-        <p class="level">{{ challenge.level }}</p>
         <p class="plan">{{ challenge.free ? 'Gratuit' : 'Payant' }}</p>
         <p class="complete">{{ challenge.completed ? 'Terminé' : 'Non terminé' }}</p>
       </div>
