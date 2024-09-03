@@ -20,7 +20,7 @@ router.get('/', async (ctx) => {
     await ctx.auth.check()
     return ctx.view.render('pages/home')
 
-})
+}).as('home')
 
 router.group(() => { 
 
@@ -37,6 +37,8 @@ router.group(() => {
 router.group(() => {
     router.get('/challenges', [ChallengesController,'index']).as('challenges.index')
     router.get('/challenges/:id', [ChallengesController, 'show']).as('challenges.show')
+    router.post('/challenges/:id/complete', [ChallengesController,'complete']).as('challenges.complete');
+
     
 })
     .use(middleware.auth()).as('challenges')

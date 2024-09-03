@@ -1,6 +1,7 @@
 import type { HttpContext } from '@adonisjs/core/http';
 import FigmaService from '#services/figma_service';
 import DescriptionService from '#services/description_service';
+import UserChallenges from '#models/user_challenges';
 
 export default class ChallengesController {
   public async index({ view }: HttpContext) {
@@ -31,13 +32,31 @@ export default class ChallengesController {
     return view.render('pages/challenges/chalenge', { challenges: allChallenges });
   }
 
+   public async complete({ params, auth, response }: HttpContext) {
+    try {
+    const userId = auth.user?.id; // Assurez-vous que l'utilisateur est authentifié
+    const { id } = params;
+    // Enregistrez l'état du challenge complété dans la base de données
+    await UserChallenges.create({
+      user_id: userId,
+      challenge_id: id,
+      completed_at: new Date(),
+    });
+
+      return response.redirect().toRoute('challenges.challenges.index');
+  } catch (error) {
+    console.error('Error completing challenge:', error.message);
+    return response.status(500).json({ message: 'Unable to complete challenge', error: error.message });
+  }
+  }
+
   public async show({ params, response, view }: HttpContext) {
     try {
       const { id } = params;  // Récupère l'ID du fichier (clé du projet)
       
       // Appel à la méthode pour récupérer les métadonnées du fichier depuis l'API de Figma
       const fileData = await FigmaService.getFile(id);
-
+      
 
       const description = DescriptionService.getDescription(fileData.name);
       

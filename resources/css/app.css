@@ -32,6 +32,13 @@ nav{
   @apply p-4 flex flex-row items-center justify-between max-w-[1440px] mx-auto;
 }
 
+.logo{
+  all: unset;
+  
+}
+.logo:hover{
+  all: unset;
+}
 nav>a{
   @apply bg-[#76D4EC] text-[#092356] py-2 px-4 rounded-full hover:bg-[#8EEC76] font-bold mr-4;
   @apply transition duration-[400ms] ease-in;

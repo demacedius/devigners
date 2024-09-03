@@ -20,6 +20,17 @@
       <div class="challenge_detail_footer">
         <p class="plan">{{ challenge.free ? 'Gratuit' : 'Payant' }}</p>
         <p class="complete">{{ challenge.completed ? 'Terminé' : 'Non terminé' }}</p>
+      
+       
+        <form action="{{ route('challenges.challenges.complete', { id: challenge.name }) }}" method="POST">
+          {{ csrfField() }}
+          <div>
+            <label>
+              <input type="checkbox" name="completed" {{ challenge.completed ? 'checked' : '' }} onchange="this.form.submit()">
+              Marquer comme terminé
+            </label>
+          </div>
+        </form>
       </div>
     </div>
   @endslot
