@@ -1,9 +1,15 @@
-import { DateTime } from 'luxon'
+
 import { BaseModel, column } from '@adonisjs/lucid/orm'
 
 export default class Challenge extends BaseModel {
   @column({ isPrimary: true })
   declare id: number
+
+  @column()
+  declare figma_id: string
+
+  @column()
+  declare figma_link: string
 
   @column()
   declare name: string
@@ -12,13 +18,7 @@ export default class Challenge extends BaseModel {
   declare description: string
 
   @column()
-  declare cover_image: string
-
-  @column()
-  declare figma_link: string
-
-  @column()
-  declare node_id: string
+  declare thumbnail_url: string
 
   @column()
   declare completed: boolean
@@ -27,11 +27,7 @@ export default class Challenge extends BaseModel {
   declare free: boolean
 
   @column()
-  declare level: string
+  declare level: number
 
-  @column.dateTime({ autoCreate: true })
-  declare createdAt: DateTime
 
-  @column.dateTime({ autoCreate: true, autoUpdate: true })
-  declare updatedAt: DateTime
 }

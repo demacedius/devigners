@@ -16,41 +16,36 @@
                         
                         
                         <div class="head_card">
-
-                            <a href="{{challenge.figma_link}}" target="_blank" rel="noopener noreferrer"><img src="{{challenge.cover_image}}" alt="cover image of {{challenge.name}}"></a>
+                            
+                            <a href="{{challenge.figma_link}}" target="_blank" rel="noopener noreferrer"><img src="{{challenge.thumbnail_url}}" alt="cover image of {{challenge.thumbnail_url}}"></a>
                         </div>
+
                         <div class="body_card">
                             
                             <a href="{{route('challenges.challenges.show', {id: challenge.id})}}">{{challenge.name}}</a>
                             <div class="bc_tag">
-
-                                @if(challenge.free == 0)
-                                    <p class="plan">payant</p>
-                                @else
-                                    <p class="plan">gratuit</p>
-                                @endif
-                                @if(challenge.level == 1)
-                                    <p class="level">newbee</p>
-                                @elseif(challenge.level == 2)
-                                    <p class="level">Junior</p>
-                                @elseif(challenge.level == 3)
-                                    <p class="level">Confirmé</p>
-                                @elseif(challenge.level == 4)
-                                    <p class="level">Senior</p>
-                                @else
-                                    <p class="level">Guru</p>
-                                @end
+                            @if(challenge.free == true) 
+                                <p>gratuit</p>
+                            @else
+                                <p>payant</p>
+                            @endif
+                            @if(challenge.level ==1) 
+                                <p>Newbee</p>
+                            @elseif(challenge.level == 2)
+                                <p>Junior</p>
+                            @elseif(challenge.level == 3)
+                                <p>Confirmé</p>
+                            @elseif(challenge.level == 4)
+                                <p>Senior</p>
+                            @else
+                                <p>Guru</p>
+                            @endif
                                 
                             </div>
                         </div>
                         
                         <p class="description">{{challenge.description}}</p>
-                        
-                        @if(challenge.completed == 1)
-                        <p class="complete">terminé</p>
-                        @else
-                        <p class="complete">Non terminé</p>
-                        @endif
+                      
                     </div>
                 @endeach
             

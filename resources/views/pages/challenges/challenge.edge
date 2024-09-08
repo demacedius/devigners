@@ -1,37 +1,40 @@
+@layout.base()
+@slot('meta')
+<meta name="description" content="Page qui permet de voir un challenge en détail">
+@endslot
 
-@layout.base() 
-  @slot('meta')
-    <meta name="description" content="Page qui permet de voir un challenge en détail">
-  @endslot
+@slot('main')
+<div class="challenge_detail">
+  <div class="challenge_detail_header">
+    <h1>{{ challenge.name }}</h1>
 
-  @slot('main')
-    <div class="challenge_detail">
-      <div class="challenge_detail_header">
-        <h1>{{ challenge.name }}</h1>
+    <p>{{ description }}</p>
+  </div>
 
-        <p> {{ description}}</p>
+  <div class="challenge_detail_body">
+    <img src="{{ challenge.thumbnail_url }}" alt="Image de couverture du challenge">
+    <a href="{{ challenge.figma_url }}" target="_blank" rel="noopener noreferrer">Voir sur Figma</a>
+  </div>
+
+  <div class="challenge_detail_footer">
+    <p class="plan">{{ challenge.free ? 'Gratuit' : 'Payant' }}</p>
+    <p class="complete">{{ challenge.completed ? 'Terminé' : 'Non terminé' }}</p>
+
+    @if(!challenge.completed)
+    <form action="{{ route('challenges.challenges.complete', { id: challenge.id }) }}" method="POST">
+      {{ csrfField() }}
+      <div>
+        <label>
+          <input type="checkbox" name="completed" {{ challenge.completed ? 'checked' : '' }}
+            onchange="this.form.submit()">
+          Marquer comme terminé
+        </label>
       </div>
-
-      <div class="challenge_detail_body">
-        <img src="{{ challenge.thumbnailUrl }}" alt="Image de couverture du challenge">
-        <a href="{{ challenge.link }}" target="_blank" rel="noopener noreferrer">Voir sur Figma</a>
-      </div>
-
-      <div class="challenge_detail_footer">
-        <p class="plan">{{ challenge.free ? 'Gratuit' : 'Payant' }}</p>
-        <p class="complete">{{ challenge.completed ? 'Terminé' : 'Non terminé' }}</p>
-      
-       
-        <form action="{{ route('challenges.challenges.complete', { id: challenge.name }) }}" method="POST">
-          {{ csrfField() }}
-          <div>
-            <label>
-              <input type="checkbox" name="completed" {{ challenge.completed ? 'checked' : '' }} onchange="this.form.submit()">
-              Marquer comme terminé
-            </label>
-          </div>
-        </form>
-      </div>
-    </div>
-  @endslot
+    </form>
+    @else
+    <p>Vous avez déjà complété ce challenge</p>
+    @endif
+  </div>
+</div>
+@endslot
 @end
