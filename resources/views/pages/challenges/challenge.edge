@@ -19,14 +19,32 @@
   <div class="challenge_detail_footer">
     <p class="plan">{{ challenge.free ? 'Gratuit' : 'Payant' }}</p>
     <p class="complete">{{ challenge.completed ? 'Terminé' : 'Non terminé' }}</p>
-
     @if(!challenge.completed)
+    <form action="{{ route('challenges.solutions.store') }}" method="POST" enctype="multipart/form-data">
+      {{ csrfField() }}
+      <input type="hidden" name="challenge_id" value="{{ challenge.id }}">
+    
+      <label for="image_url">Image du challenge:</label>
+      <input type="text" id="image_url" name="image_url" value="{{challenge.thumbnail_url}}" required>
+
+      <label for="description">description du challenge</label>
+      <textarea name="description" id="desciption" cols="30" rows="10"></textarea>
+    
+      <label for="repository_url">Lien GitHub (pour les développeurs):</label>
+      <input type="url" id="repository_url" name="repository_url">
+    
+      <label for="figma_urm">Lien Figma (pour les designers):</label>
+      <input type="url" id="figma_url" name="figma_url">
+    
+      <button type="submit">Soumettre</button>
+    </form>
+    
     <form action="{{ route('challenges.challenges.complete', { id: challenge.id }) }}" method="POST">
       {{ csrfField() }}
       <div>
         <label>
           <input type="checkbox" name="completed" {{ challenge.completed ? 'checked' : '' }}
-            onchange="this.form.submit()">
+            onchange="this.form.submit()" >
           Marquer comme terminé
         </label>
       </div>
