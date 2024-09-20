@@ -22,7 +22,7 @@ export default class PricingController {
       console.log('Produits récupérés:', JSON.stringify(products, null, 2))
 
      
-      return view.render('pages/pricing', { products })
+      return view.render('pages/pricing.edge', { products })
     } catch (error) {
       console.error('Erreur lors de la récupération des données:', error)
       if (axios.isAxiosError(error)) {

@@ -35,9 +35,9 @@ router.group(() => {
     router.get('/login', [LoginController, 'show']).as('login.show')
     router.post('/login', [LoginController, 'store']).as('login.store')
     router.post('/logout', [LogoutController, 'handle']).as('logout')
-
+    
 })
-    .as('auth')
+.as('auth')
 
 router.group(() => {
     router.get('/challenges', [ChallengesController,'index']).as('challenges.index')
