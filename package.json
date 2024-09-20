@@ -65,6 +65,7 @@
     "@vinejs/vine": "^2.1.0",
     "axios": "^1.7.5",
     "edge.js": "^6.0.2",
+    "lemonsqueezy.ts": "^0.1.7",
     "luxon": "^3.5.0",
     "mysql2": "^3.11.0",
     "reflect-metadata": "^0.2.2"

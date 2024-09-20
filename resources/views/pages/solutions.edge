@@ -1,0 +1,22 @@
+@layout.base()
+    @slot('meta')
+        <meta name="description" content="La page des solutions des différents challenges des utilisateur">
+    @end
+
+    @slot('main')
+    <div class="challenge_list">
+        @each(solution in solutions)
+        
+                <div class="challenge_card">
+                    <img src="{{solution.image_url}}" alt="" style="width: 300px ; height: auto;">
+                    <p>Email de l'utilisateur : {{ solution.user?.email ?? 'Non disponible' }}</p>
+                    <p>{{solution.description}}</p>
+                    <a href="{{solution.repository_url}}">le lien vers le github de la solution</a>
+                </div>
+
+                
+                
+        @end
+            </div>
+    @end
+@end

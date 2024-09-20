@@ -1,4 +1,3 @@
-
 <nav>
     <a href="{{route('home')}}" class="logo">
 
@@ -9,9 +8,9 @@
             @if(item === "Challenge")
                 <li><a href="{{ route('challenges.challenges.index')}}">{{ item }}</a></li>
             @elseif(item === "Solution")
-                <li><a href="#">{{ item }}</a></li>
+                <li><a href="{{ route('challenges.solutions.index')}}">{{ item }}</a></li>
             @elseif(item === "Tarif")
-                <li><a href="#">{{ item }}</a></li>
+                <li><a href="{{ route('auth.pricing.index') }}">{{ item }}</a></li>
             @else
                 <li><a href="">{{ item }}</a></li>
             @end
