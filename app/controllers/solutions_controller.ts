@@ -2,7 +2,11 @@ import type { HttpContext } from '@adonisjs/core/http'
 import Solution from '#models/solution'
 
 export default class SolutionsController {
-    // Enregistre une nouvelle solution
+
+    public async index({ view }: HttpContext) {
+    const solutions = await Solution.query().preload('user');
+    return view.render('pages/solutions', { solutions });
+  }
     public async store({ request, auth, response }: HttpContext) {
         try {
             const userId = auth.user?.id ?? 0;
@@ -10,7 +14,7 @@ export default class SolutionsController {
 
             // Crée une nouvelle solution
             await Solution.create({
-                user_id: userId,
+                userId: userId,
                 challenge_id,
                 image_url,
                 repository_url,
@@ -18,20 +22,40 @@ export default class SolutionsController {
                 description
             });
 
-            return response.redirect().toRoute('challenges.challenges.show', { id: challenge_id });
+            return response.redirect().toRoute('challenges.solutions.show', { id: challenge_id });
         } catch (error) {
             console.error('Error saving solution:', error.message);
             return response.status(500).json({ message: 'Unable to save solution', error: error.message });
         }
     }
 
-    // Affiche les solutions d'un challenge
     public async show({ params, view }: HttpContext) {
         const { id } = params;
+        
+        try {
+            const solution = await Solution.query()
+                .where('id', id)
+                .preload('user')
+                .firstOrFail();
 
-        // Récupère les solutions pour le challenge spécifié
-        const solutions = await Solution.query().where('challenge_id', id);
 
-        return view.render('pages/solutions/index', { solutions });
+            let solutionWithEmail;
+            if (solution.user) {
+                solutionWithEmail = {
+                    ...solution.toJSON(),
+                    email: solution.user.email
+                };
+            } else {
+                solutionWithEmail = {
+                    ...solution.toJSON(),
+                    email: 'Non disponible'
+                };
+            }
+
+
+            return view.render('pages/solutions', { solution: solutionWithEmail });
+        } catch (error) {
+            return view.render('pages/solutions', { solution: null });
+        }
     }
 }

@@ -16,7 +16,7 @@ class FigmaService {
         },
       });
 
-      console.log('Figma API Response for Projects:', response.data);
+      
 
       if (response.data && response.data.projects) {
         return response.data.projects;
@@ -37,7 +37,7 @@ class FigmaService {
           'X-Figma-Token': this.getFigmaAccessToken(),
         },
       });
-      console.log('Files Response:', response.data);
+     
       return response.data.files;
     } catch (error) {
       console.error('Error fetching files:', error.response?.data || error.message);

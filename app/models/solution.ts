@@ -1,12 +1,16 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column } from '@adonisjs/lucid/orm'
+import { BaseModel, belongsTo, column } from '@adonisjs/lucid/orm'
+import type { BelongsTo } from '@adonisjs/lucid/types/relations'
+import User from '#models/user'
+
+
 
 export default class Solution extends BaseModel {
   @column({ isPrimary: true })
   declare id: number
 
   @column()
-  declare user_id: number
+  declare userId: number
 
   @column()
   declare challenge_id: number
@@ -26,5 +30,10 @@ export default class Solution extends BaseModel {
   @column.dateTime({ autoCreate: true })
   declare createdAt: DateTime
 
+  @belongsTo(() => User, {
+    foreignKey: 'userId',})
+  declare user: BelongsTo<typeof User>
+
+  
   
 }

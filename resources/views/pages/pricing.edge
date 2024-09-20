@@ -1,0 +1,38 @@
+@layout.base()
+@slot('meta')
+<meta name="description" content="La page des tarifs de notre application">
+@end
+@slot('main')
+<div class="container mx-auto px-4 py-8">
+    <h1 class="text-3xl font-bold text-center mb-8">Nos tarifs</h1>
+
+    @if(error)
+    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4" role="alert">
+        <strong class="font-bold">Erreur :</strong>
+        <span class="block sm:inline">{{ error }}</span>
+    </div>
+    @endif
+
+    <div class="grid md:grid-cols-3 gap-6">
+        @if(products && products.length > 0)
+            @each(product in products)
+                <div class="product bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:scale-105">
+                    <div class="p-6">
+                        <h2 class="text-2xl font-semibold mb-2 text-gray-800">{{ product.attributes.name }}</h2>
+                        <div class="text-gray-600 mb-4 h-24 overflow-y-auto">
+                            {{{ product.attributes.description }}}
+                        </div>
+                        <p class="text-3xl font-bold text-indigo-600 mb-4">{{ product.attributes.price_formatted }}</p>
+                        <a href="{{ product.attributes.buy_now_url }}" class="block w-full bg-indigo-600 text-white text-center py-2 px-4 rounded-md hover:bg-indigo-700 transition duration-300">
+                            Acheter maintenant
+                        </a>
+                    </div>
+                </div>
+            @endeach
+        @else
+            <p class="col-span-3 text-center text-gray-600">Aucun produit disponible pour le moment.</p>
+        @endif
+    </div>
+</div>
+@end
+@end
