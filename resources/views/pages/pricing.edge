@@ -19,13 +19,17 @@
                 <div class="product bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:scale-105">
                     <div class="p-6">
                         <h2 class="text-2xl font-semibold mb-2 text-gray-800">{{ product.attributes.name }}</h2>
-                        <div class="text-gray-600 mb-4 h-24 overflow-y-auto">
+                        <div class="text-gray-600 mb-4 h-full">
                             {{{ product.attributes.description }}}
                         </div>
                         <p class="text-3xl font-bold text-indigo-600 mb-4">{{ product.attributes.price_formatted }}</p>
-                        <a href="{{ product.attributes.buy_now_url }}" class="block w-full bg-indigo-600 text-white text-center py-2 px-4 rounded-md hover:bg-indigo-700 transition duration-300">
-                            Acheter maintenant
-                        </a>
+                        @if(product.attributes.name !== currentPlan)
+                            <a href="{{ product.attributes.buy_now_url }}" class="block w-full bg-indigo-600 text-white text-center py-2 px-4 rounded-md hover:bg-indigo-700 transition duration-300">
+                                Acheter maintenant
+                            </a>
+                        @else
+                            <p class="text-gray-600">Vous avez déjà le plan {{ product.attributes.name }}</p>
+                        @endif
                     </div>
                 </div>
             @endeach

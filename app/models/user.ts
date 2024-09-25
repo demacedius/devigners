@@ -25,8 +25,6 @@ export default class User extends compose(BaseModel, AuthFinder) {
   @column()
   declare plan: string
 
-  @column()
-  declare stripeId: string
 
   @column.dateTime({ autoCreate: true })
   declare createdAt: DateTime
