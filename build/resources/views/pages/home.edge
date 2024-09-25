@@ -1,0 +1,51 @@
+@layout.base() 
+  @slot('meta')
+    <meta name="description" content="Devign est une plateforme qui permet aux développeurs mobile 
+    et aux designers d'interface de s'améliorer en faisant des projets inspiré de la vie réelle et
+    ainsi de sortir de l'enfer des tutoriels sur internet en favorisant la pratique et la recherche" />
+    
+  @endslot
+    
+
+  @slot('main')
+    @include('partials/header')
+    
+    <div class="tuto_hell">
+      <img class="schema" src="resources/assets/Group5.svg" alt="schéma qui correspond à l'enfer des tutoriel">
+      <div class="title_subtitle">
+          <img class="icon" src="resources/assets/Group4.svg" alt="Smiling face with horn purple color">
+          <h2>Quitte l’enfer des tutoriels</h2>
+          <p>
+          
+          <b>Ajoute des projets concrets à ton parcours d'apprentissage et mets tes connaissances à l'épreuve.</b>
+          <br><br>
+          Le véritable apprentissage commence lorsque tu commences à résoudre toi-même des problèmes réels. Dans le développement
+          mobile, chaque ligne de code que tu écris te rapproche de la maîtrise. Plonge-toi dans des projets qui te défient, et
+          transforme tes compétences en outils pour créer des applications mobiles innovantes et performantes.
+          </p>
+     
+      </div>
+    </div>
+
+    <div class="tuto_hell example">
+      <div class="title_subtitle">
+        <img class="icon" src="resources/assets/start_eye.png" alt="Smiling face with horn purple color">
+        <h2>Crée toi un bon portfolio</h2>
+        <p>
+      
+          <b>Devenir designer, c'est complexe et ça demande du temps.</b>
+          <br><br>
+          Avec Devign, tu peux consacrer ce temps précieux à ce qui te passionne vraiment : coder des applications mobiles. Devign
+          te fournit toutes les maquettes dont tu as besoin à travers ses différents challenges. Plus besoin de t’inquiéter du
+          design concentre-toi sur le développement, améliore tes compétences, et mets ton talent à l’épreuve avec des projets
+          concrets. Laisse-nous te fournir les bases visuelles, et toi, mets toute ton énergie dans la création d’applications
+          mobiles exceptionnelles.
+        </p>
+      </div>
+      <img class="plant" src="resources/assets/plant_app.png" alt="Example d'une application de vente de plante" >
+    </div>
+  @end
+
+@end
+
+

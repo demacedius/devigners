@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> {{ title || "Devign Améliore tes skills"}} </title>
+    @if($slots.meta()) 
+        {{{ await $slots.meta() }}}
+    @end
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+</head>
+
+<body>
+    @!component('components/navbar', { items: ["Challenge" , "Solution", "tarif"] })
+    
+    {{{ await $slots.main() }}}
+    
+</body>

@@ -3,7 +3,7 @@ import axios from 'axios'
 import lemonsqueezyConfig from '#config/lemonsqueezy'
 
 export default class PricingController {
-  public async index({ view }: HttpContext) {
+  public async index({ auth,view }: HttpContext) {
     try {
       // 1. Récupérer les produits du magasin
       const productsResponse = await axios.get('https://api.lemonsqueezy.com/v1/products', {
@@ -19,10 +19,11 @@ export default class PricingController {
 
       const products = productsResponse.data.data
 
-      console.log('Produits récupérés:', JSON.stringify(products, null, 2))
+      const currentPlan = auth.user?.plan || 'Vous avez le plan Gratuit'
+     
 
      
-      return view.render('pages/pricing.edge', { products })
+      return view.render('pages/pricing.edge', { products, user: auth.user, currentPlan })
     } catch (error) {
       console.error('Erreur lors de la récupération des données:', error)
       if (axios.isAxiosError(error)) {
@@ -30,7 +31,7 @@ export default class PricingController {
         console.error('Statut:', error.response?.status)
         console.error('Données:', error.response?.data)
       }
-      return view.render('pages/pricing', { products: [], error: 'Une erreur est survenue lors de la récupération des données' })
+      return view.render('pages/pricing', { products: [],user: auth.user,currentPlan: 'Erreur de chargement', error: 'Une erreur est survenue lors de la récupération des données' })
     }
   }
 }
